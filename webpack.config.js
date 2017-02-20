@@ -4,11 +4,12 @@
 **/
 const extend = require('extend');
 
-module.exports = function() {
-	return extend(false,
-		require('./config/dev'),
-		require('./config/entries'),
-		require('./config/loaders'),
-		require('./config/plugins')
+module.exports = function(env) {
+
+	return require('./config/plugins')(env, extend(true,
+		require('./config/modules')(env),
+		require('./config/loaders')(env),
+		require('./config/dev')(env))
 	);
+
 };
