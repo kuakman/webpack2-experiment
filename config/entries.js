@@ -4,6 +4,8 @@
 **/
 const path = require('path');
 
+console.log(path.resolve(__dirname, '../dist'));
+
 module.exports = {
 
 	context: path.resolve(__dirname, '../app'),
@@ -28,7 +30,7 @@ module.exports = {
 	},
 
 	output: {
-		path: path.resolve('../dist'),
+		path: path.resolve(__dirname, '../dist'),
 		filename: 'js/[name].bundle.js',
 		publicPath: '/'
 	},
